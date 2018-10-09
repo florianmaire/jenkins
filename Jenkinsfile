@@ -11,6 +11,8 @@ node () {
 	stage ('APP-IC - Build') {
  			// Maven build step
 	withMaven(maven: 'maven-3') { 
+		sh "mvn sonar:sonar"
+		
  			if(isUnix()) {
  				sh "mvn clean package " 
 			} else { 
